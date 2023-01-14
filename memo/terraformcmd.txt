@@ -1,0 +1,37 @@
+作成済みリソースの一覧表示
+terraform state list
+
+詳細情報の表示
+terraform state show リソース名
+
+リソースの名前変更
+terraform state mv 旧リソース名　新リソース名
+#ftstatの内容変えたらコードも修正する
+
+リソースの取り込み
+terraform import コード上のリソース名　稼働中のリソース名
+#取り込んでから、細かいコード内容を修正していく
+
+リソースをterraform管理対象外にする
+terraform state rm コード上のリソース名
+#上記でtfstateから消して、コードも削除する
+
+現在のAWS上の設定値にtfstateを修正する　コードには反映されない
+aws refresh
+
+
+
+----------------------------------------------
+tfenv list-remote
+利用可能なterraformのバージョン
+
+tfenv install <バージョン>
+teraformのインストール
+
+tfenv list
+インストール済みのterraformの確認
+
+tfenv use <バージョン>
+使用するバージョンの指定
+
+

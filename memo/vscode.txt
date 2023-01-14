@@ -1,0 +1,28 @@
+コマンドパレットを開く
+Ctrl + Shift + P
+
+エディターの分割
+Ctrl + \　[円マーク]
+
+タブの移動
+Ctrl + tab
+
+選択している行の移動
+Alt + 矢印キー
+
+選択行の削除
+Ctrl + Shift + K
+
+ファイルの先頭へ移動
+Ctrl + fn + home
+
+ファイルの末尾へ移動
+Ctrl + fn + end
+
+行の先頭へ移動
+fn + home
+
+行の末尾へ移動
+fn + end
+
+

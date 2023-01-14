@@ -1,0 +1,3 @@
+bucket  = "terraform.s3.tfstate"
+key     = "prod"
+region  = "ap-northeast-1"

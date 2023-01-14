@@ -1,0 +1,127 @@
+# 便利エイリアス
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.co checkout
+
+
+.gitignore
+#指定したファイルをgit管理外にする
+
+git init
+・ローカルリポジドリの作成　[.git]
+
+git add .
+git commit -m[メッセージ]　-v[変更内容の出力]
+・基本的な流れ
+
+git status
+・変更されたファイルの確認
+
+git diff
+git diff --staged
+・変更内容の確認
+
+git log -p[特定ファイルの変更履歴の確認]
+git log --oneline
+・変更履歴の確認
+
+git rm <file.name>
+git rm -r <directory.name>
+git rm --cached <file.name>  ファイルをローカルに残したいとき
+
+git mv <旧ファイル> <新ファイル>
+ファイル名の変更　[ステージの記録も変更してくれる]
+
+
+git remote add origin リポジドリURL
+・originと言うショートカット名でgit hubのリモートリポジドリを追加
+
+git push -u origin master
+・-u 初回につけると次回以降 git push のみでpush出来るようになる
+・origin [git hub]にmaster [branch]の内容をpush
+
+
+git checkout -- <file.name>
+・変更の取り消し　[ローカルファイルの内容をステージに合わせる]　変更ミスや、変更内容が分からなくなったとき用
+
+git reset HEAD <file.name> <directory.name>
+・変更の取り消し　[ステージの内容をリポジトリに合わせる]　変更ミスや、変更内容が分からなくなったとき用
+
+git commit --amend
+・直前のコミットを修正(やり直す)　※ローカル環境で使う　リモートリポジドリにpushしたものに関しては使用しない
+
+
+git remote
+git remote -v [リモートのURLを表示する]
+
+
+git fetch <リモート名>
+git fetch origin
+・リモートリポジドリからローカルリポジドリに情報を持ってくる、ローカルのワークツリーには反映しない
+
+git branch -a
+・リモートも含めたブランチの表示
+
+git checkout <ブランチ名>
+・ブランチの変更
+
+git merge <ブランチ名>
+・指定したブランチを取り込む
+
+
+git pull <origin> <master> 一括で持ってきてマージしてくれる　
+※基本的には fetch 使ったほうが良き　自分がいるブランチを上書きする
+
+git remote rename <旧リモート名> <新リモート名>
+・リモート名の変更
+
+git remote rm <リモート名>
+・リモートの削除
+
+git branch <ブランチ名>
+・ブランチの作成　切り替まではしない
+
+git checkout -b <ブランチ名> 
+・ブランチを作成して切り替まで行う
+
+git merge <ブランチ名>
+git merge <リモート名/ブランチ名>
+・統合する
+
+git branch -m <ブランチ名>
+・ブランチ名の変更
+
+git branch -d <ブランチ名>　※ -D　強制削除
+・ブランチの削除
+
+git rebase <ブランチ名>
+・指定したブランチを取り込む　コミットが一直線になる
+
+
+git tag
+git tag -l "キーワード"
+・タグの表示
+
+git tag -a [タグ名] -m [メッセージ]
+
+git show [タグ名]
+・タグの詳細情報の表示
+
+git push [origin] [タグ名]
+
+git stash
+・ローカルの変更を隠す
+
+git stash list
+・stashの表示
+
+git stash apply
+git stash apply --index　※ステージの状況も復元する
+・作業を復元する
+
+git stash drop
+・最新の作業を削除する
+
+
+
