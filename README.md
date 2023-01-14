@@ -1,2 +1,1 @@
-# taka2_terraform
-aaaa
+# memo
