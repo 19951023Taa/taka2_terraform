@@ -20,4 +20,13 @@ provider "aws" {
   region  = "ap-northeast-1"
 }
 
+#---------------------------------------------
+# Variables
+#---------------------------------------------
+variable "project" {
+  type = string
+}
 
+variable "env" {
+  type = string
+}
