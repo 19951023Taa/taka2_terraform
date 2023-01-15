@@ -20,3 +20,22 @@ locals {
    name = "my-name"
    env = "test"
 }
+
+
+module output
+====================
+outputする側
+output "subnet_id" {
+  value = aws_subnet.main.id
+}
+
+output値を使う側
+module/main.tf
+subnet_id = var.subnet_id
+
+module/variable.tf
+variable "subnet_id" {}
+
+module呼び出し時
+subnet_id = module.test_subnetA.subnet_id
+            モジュール名、output名
