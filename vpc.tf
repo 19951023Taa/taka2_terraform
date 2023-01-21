@@ -23,7 +23,6 @@ module "pub_subnet_A" {
   
   cidr_block = "10.0.1.0/24"
   availability_zone = "ap-northeast-1a"
-  env = var.env
   subnetname = "public-A"
 }
 
@@ -32,7 +31,6 @@ module "pub_subnet_C" {
   
   cidr_block = "10.0.3.0/24"
   availability_zone = "ap-northeast-1c"
-  env = var.env
   subnetname = "public-C"
 }
 
@@ -42,7 +40,6 @@ module "pulivate_subnet_A" {
 
   cidr_block = "10.0.2.0/24"
   availability_zone = "ap-northeast-1a"
-  env = var.env
   subnetname = "private-A"
 }
 
@@ -51,7 +48,6 @@ module "pulivate_subnet_C" {
 
   cidr_block = "10.0.4.0/24"
   availability_zone = "ap-northeast-1c"
-  env = var.env
   subnetname = "private-C"
 }
 

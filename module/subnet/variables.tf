@@ -11,7 +11,7 @@ variable "availability_zone" {
 }
 
 variable "project" {
-  default = "terra"
+  
 }
 
 variable "env" {
