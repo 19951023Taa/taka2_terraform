@@ -1,5 +1,5 @@
 module "pubic_route" {
-  source = "./module/route_table"
+  source = "./module/public_route_table"
 
   vpc_id           = var.vpc_id
   project          = var.project
