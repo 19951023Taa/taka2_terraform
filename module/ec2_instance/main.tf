@@ -3,6 +3,7 @@ resource "aws_instance" "this" {
   instance_type = "t3.micro"
   subnet_id = var.subnet_id
   associate_public_ip_address = "true"
+  vpc_security_group_ids  = var.security_groups
 
 
     tags = {

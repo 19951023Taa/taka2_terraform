@@ -18,4 +18,6 @@ variable "ec2_name" {
 
 }
 
+variable "security_groups" {
 
+}
