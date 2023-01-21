@@ -1,5 +1,5 @@
 resource "aws_backup_vault" "this" {
-  name        = "${var.project}-${var.env}-vault"
+  name = "${var.project}-${var.env}-vault"
 }
 
 resource "aws_backup_plan" "this" {
