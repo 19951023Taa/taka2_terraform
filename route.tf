@@ -9,3 +9,14 @@ module "pubic_route" {
   subnet_id_C      = module.pub_subnet_C.subnet_id
   gateway_id       = aws_internet_gateway.igw.id
 }
+
+module "private_route" {
+  source = "./module/private_route_table"
+
+  vpc_id           = var.vpc_id
+  project          = var.project
+  env              = var.env
+  route_table_name = "private_route_table"
+  subnet_id_A      = module.pulivate_subnet_A.subnet_id
+  subnet_id_C      = module.pulivate_subnet_C.subnet_id
+}
