@@ -17,6 +17,7 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
+# public subnet 
 module "pub_subnet_A" {
  source = "./module/subnet"
   
@@ -34,3 +35,38 @@ module "pub_subnet_C" {
   env = var.env
   subnetname = "public-C"
 }
+
+# plivate subnet 
+module "pulivate_subnet_A" {
+  source = "./module/subnet"
+
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "ap-northeast-1a"
+  env = var.env
+  subnetname = "private-A"
+}
+
+module "pulivate_subnet_C" {
+  source = "./module/subnet"
+
+  cidr_block = "10.0.4.0/24"
+  availability_zone = "ap-northeast-1c"
+  env = var.env
+  subnetname = "private-C"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
