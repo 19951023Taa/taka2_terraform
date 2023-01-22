@@ -22,10 +22,10 @@ data "aws_ami" "my_ami" {
 module "ec2_instance" {
   source = "./module/ec2_instance"
 
-  my_ami    = data.aws_ami.my_ami.id
-  subnet_id = module.pub_subnet_A.subnet_id
+  my_ami          = data.aws_ami.my_ami.id
+  subnet_id       = module.pub_subnet_A.subnet_id
   security_groups = [module.app_sg.sg_id]
-  project   = var.project
-  env       = var.env
-  ec2_name  = "app_server"
+  project         = var.project
+  env             = var.env
+  ec2_name        = "app_server"
 }
