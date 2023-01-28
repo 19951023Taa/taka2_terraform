@@ -22,7 +22,7 @@ resource "aws_s3_bucket_public_access_block" "cloudtrail_bucket_access" {
 
 resource "aws_s3_bucket_policy" "cloud_trail_bucket_policy" {
   bucket = aws_s3_bucket.cloudtrail_bucket.id
-  policy = "${data.template_file.s3_cloudtrail.rendered}"
+  policy = data.template_file.s3_cloudtrail.rendered
 }
 #----------------------------------------------------------
 
@@ -47,6 +47,6 @@ resource "aws_s3_bucket_public_access_block" "config_bucket_access" {
 
 resource "aws_s3_bucket_policy" "config_bucket_policy" {
   bucket = aws_s3_bucket.config_bucket.id
-  policy = "${data.template_file.s3_config.rendered}"
+  policy = data.template_file.s3_config.rendered
 }
 #----------------------------------------------------------

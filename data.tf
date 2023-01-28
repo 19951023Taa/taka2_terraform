@@ -2,7 +2,7 @@ data "aws_caller_identity" "self" {}
 
 
 data "template_file" "s3_cloudtrail" {
-  template = "${file("s3_bucketpolisy/s3_cloudtrail.json")}"
+  template = file("s3_bucketpolisy/s3_cloudtrail.json")
 
   vars = {
     bucket_arn = "${aws_s3_bucket.cloudtrail_bucket.arn}",
@@ -12,7 +12,7 @@ data "template_file" "s3_cloudtrail" {
 
 
 data "template_file" "s3_config" {
-  template = "${file("s3_bucketpolisy/s3_config.json")}"
+  template = file("s3_bucketpolisy/s3_config.json")
 
   vars = {
     bucket_arn = "${aws_s3_bucket.config_bucket.arn}",
