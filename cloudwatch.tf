@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_metric_alarm" "ec2_cpu_metric" {
   alarm_name                = "ec2_cpu_alarm"
-  alarm_description         = "EC2_CPU_40_metric"
+  alarm_description         = "EC2_CPU_70_metric"
   comparison_operator       = "GreaterThanOrEqualToThreshold" # 以上の意味
   evaluation_periods        = "3"                             # データが指定されたしきい値と比較される期間の数。
   metric_name               = "CPUUtilization"
