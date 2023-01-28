@@ -19,3 +19,8 @@ resource "aws_s3_bucket_public_access_block" "cloudtrail_bucket_access" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+resource "aws_s3_bucket_policy" "cloud_trail_bucket_policy" {
+  bucket = aws_s3_bucket.cloudtrail_bucket.id
+  policy = file("./s3_bucketpolisy/s3_cloudtrail.json")
+}
