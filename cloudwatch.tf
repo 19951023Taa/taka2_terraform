@@ -7,7 +7,7 @@ resource "aws_cloudwatch_metric_alarm" "ec2_cpu_metric" {
   namespace                 = "AWS/EC2"
   period                    = "180" # 期間
   statistic                 = "Average"
-  threshold                 = "40" # しきい値を定義 CPU使用率80%を監視
+  threshold                 = "70" # しきい値を定義 CPU使用率70%を監視
   insufficient_data_actions = []
   datapoints_to_alarm       = "2" # アラームを実行するデータポイント 何回超えたらアラームするか
   dimensions = {
