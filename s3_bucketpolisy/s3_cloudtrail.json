@@ -8,7 +8,7 @@
                 "Service": "cloudtrail.amazonaws.com"
             },
             "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::terra-pd-cloudtrail-bucket"
+            "Resource": "${bucket_arn}"
         },
         {
             "Sid": "AWSCloudTrailWrite20150319",
@@ -17,7 +17,7 @@
                 "Service": "cloudtrail.amazonaws.com"
             },
             "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::terra-pd-cloudtrail-bucket/prefix/AWSLogs/389759593235/*",
+            "Resource": "${bucket_arn}/prefix/AWSLogs/${account_id}/*",
             "Condition": {
                 "StringEquals": {
                     "s3:x-amz-acl": "bucket-owner-full-control"
