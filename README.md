@@ -4,6 +4,7 @@
 terraform init -reconfigure -backend-config=pd.s3.tfbackend
 
 apply　本番
+terraform plan -var-file=_pd.tfvars -state=pd.s3.tfbackend
 terraform apply -var-file=_pd.tfvars -state=pd.s3.tfbackend
 
 変数　tfファイルで変数を指定して、tfvarsで値を設定
