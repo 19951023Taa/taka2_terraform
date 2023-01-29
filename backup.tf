@@ -9,7 +9,7 @@ resource "aws_backup_plan" "this" {
     rule_name         = "test-rule"
     target_vault_name = aws_backup_vault.this.name
     # 日本時間深夜2時
-    schedule          = "cron(4 5 * * ? *)"
+    schedule = "cron(4 5 * * ? *)"
     lifecycle {
       delete_after = 7
     }

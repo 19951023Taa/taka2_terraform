@@ -19,4 +19,4 @@ resource "aws_config_configuration_recorder" "awsconfig" {
 resource "aws_config_delivery_channel" "awsconfig" {
   name           = "${var.project}-${var.env}-config-delivery"
   s3_bucket_name = aws_s3_bucket.config_bucket.bucket
-  }
+}
