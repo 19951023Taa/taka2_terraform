@@ -8,19 +8,18 @@ resource "aws_backup_plan" "this" {
   rule {
     rule_name         = "test-rule"
     target_vault_name = aws_backup_vault.this.name
-    schedule          = "cron(0 12 * * ? *)"
+    # 日本時間深夜2時
+    schedule          = "cron(4 5 * * ? *)"
     lifecycle {
       delete_after = 7
     }
   }
 }
 
-# resource "aws_backup_selection" "this" {
-#   iam_role_arn = "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole"
-#   name         = "${var.project}-${var.env}-backup-selection"
-#   plan_id      = aws_backup_plan.this.id
+resource "aws_backup_selection" "this" {
+  iam_role_arn = aws_iam_role.backup_role.arn
+  name         = "${var.project}-${var.env}-backup-selection"
+  plan_id      = aws_backup_plan.this.id
 
-#   resources = [
-#     インスタンス等
-#   ]
-# }
+  resources = ["arn:aws:ec2:ap-northeast-1:389759593235:instance/i-0e72619325586e30b"]
+}

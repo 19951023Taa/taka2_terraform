@@ -46,3 +46,33 @@ resource "aws_iam_role_policy" "config_policy" {
 }
 POLICY
 }
+# ---------------------------------------------------------
+
+# backup role ---------------------------------------------
+data "aws_iam_policy_document" "backup_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["backup.amazonaws.com"]
+    }
+  }
+}
+
+# iam role
+resource "aws_iam_role" "backup_role" {
+  name               = "${var.project}-${var.env}-backup-role"
+  description        = "backup role"
+  assume_role_policy = data.aws_iam_policy_document.backup_assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "backup_role_1" {
+  role       = aws_iam_role.backup_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+}
+
+resource "aws_iam_role_policy_attachment" "backup_role_2" {
+  role       = aws_iam_role.backup_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores"
+}
