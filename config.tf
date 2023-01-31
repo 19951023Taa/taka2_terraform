@@ -8,7 +8,7 @@ resource "aws_config_configuration_recorder_status" "awsconfig" {
 # config本体の設定
 resource "aws_config_configuration_recorder" "awsconfig" {
   name     = "${var.project}-${var.env}-config"
-  role_arn = aws_iam_role.config_role.arn
+  role_arn = aws_iam_role.config_role[0].arn
   recording_group {
     all_supported                 = "true"
     include_global_resource_types = "true"

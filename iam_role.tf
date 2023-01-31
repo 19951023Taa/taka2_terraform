@@ -12,6 +12,7 @@ data "aws_iam_policy_document" "config_assume_role" {
 
 # iam role
 resource "aws_iam_role" "config_role" {
+  count = var.env == "pd" ? 1 : 0
   name               = "${var.project}-${var.env}-config-role"
   description        = "config role"
   assume_role_policy = data.aws_iam_policy_document.config_assume_role.json
@@ -19,14 +20,16 @@ resource "aws_iam_role" "config_role" {
 
 # AWS_ConfigRoleを作成したroleにアタッチ
 resource "aws_iam_role_policy_attachment" "config-role-attachment" {
-  role       = aws_iam_role.config_role.name
+  count = var.env == "pd" ? 1 : 0
+  role       = aws_iam_role.config_role[0].name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
 }
 
 # 作成したroleにインラインポリシーを設定 ※S3にputする等の権限を付与
 resource "aws_iam_role_policy" "config_policy" {
+  count = var.env == "pd" ? 1 : 0
   name = "awsconfig-example"
-  role = aws_iam_role.config_role.id
+  role = aws_iam_role.config_role[0].id
 
   policy = <<POLICY
 {
