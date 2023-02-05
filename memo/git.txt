@@ -6,6 +6,13 @@ git config --global --add pull.ff only
 git config --global user.name "ユーザー名"　# --local or --global
 git config --global user.email メールアドレス  # --local or --global
 
+・開発中のcommit,addを取り消して、ほかの人の変更をmergeする方法
+git reset --soft HEAD^　　        ※ワークディレクトリの内容はそのままでコミットだけを取り消し
+git restore --staged [ファイル名]  ※addを取り消す
+git fetch <リモート名> <ブランチ名>
+git merge <ブランチ名>
+再度add,commitしてリモートにpush
+※deproyサーバのリモートにpushしている場合は強制pushする、deprotサーバからのpullは強制fetchで完了
 
 .gitignore
 ・指定したファイルをgit管理外にする
