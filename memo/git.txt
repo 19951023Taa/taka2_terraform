@@ -40,6 +40,7 @@ git remote add [origin] リポジドリURL
 ・originと言うショートカット名でgit hubのリモートリポジドリを追加
 
 git push -u [origin] master
+git push -f origin master　※強制的にpush remoteの状態をローカルにそろえる
 ・-u 初回につけると次回以降 git push のみでpush出来るようになる
 
 git checkout -- <file.name>
@@ -54,12 +55,17 @@ git commit --amend
 git remote
 ・git remote -v [リモートのURLを表示する]
 
-git fetch <リモート名>:<ブランチ名>
+git fetch <リモート名> <ブランチ名>
 git fetch origin
-・リモートリポジドリからローカルリポジドリに情報を持ってくる、ローカルのワークツリーには反映しない
+・取得したリモートの情報は[remotes/リモート名/ブランチ名]に保存される、ローカルのワークツリーには反映しない
 
 git merge <ブランチ名>
 ・指定したブランチを取り込む
+
+・強制pull ローカルの状態をremoteで上書きする
+git fetch リモート名 ブランチ名
+git reset --hard リモート名/ブランチ名
+
 
 git branch -a
 ・リモートも含めたブランチの表示
