@@ -62,19 +62,9 @@ git fetch origin
 git merge <ブランチ名>
 ・指定したブランチを取り込む
 
-・強制pull ローカルの状態をremoteで上書きする
+・強制pull 操作してるローカルブランチの状態をremoteで上書きする
 git fetch リモート名 ブランチ名
 git reset --hard リモート名/ブランチ名
-
-
-git branch -a
-・リモートも含めたブランチの表示
-
-git checkout <ブランチ名>
-・ブランチの変更
-
-
-
 
 git pull <origin> <master> 一括で持ってきてマージしてくれる　
 ※基本的には fetch 使ったほうが良き　自分がいるブランチを上書きする
@@ -91,10 +81,6 @@ git branch <ブランチ名>
 git checkout -b <ブランチ名> 
 ・ブランチを作成して切り替まで行う
 
-git merge <ブランチ名>
-git merge <リモート名/ブランチ名>
-・統合する
-
 git branch -m <ブランチ名>
 ・ブランチ名の変更
 
@@ -103,7 +89,6 @@ git branch -d <ブランチ名>　※ -D　強制削除
 
 git rebase <ブランチ名>
 ・指定したブランチを取り込む　コミットが一直線になる
-
 
 git tag
 git tag -l "キーワード"
